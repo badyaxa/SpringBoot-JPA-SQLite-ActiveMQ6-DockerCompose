@@ -1,0 +1,24 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: data-service-4
+
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+    packages:
+      trust-all: true
+
+activemq:
+  queue:
+    receive: service3web-to-service4data-queue
+    send: service4web-to-service5db-queue
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    com.pr.service4data: DEBUG
