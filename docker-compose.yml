@@ -1,0 +1,84 @@
+services:
+  activemq:
+    image: apache/activemq-artemis:latest
+    container_name: container_activemq
+    ports:
+      - "61616:61616"
+      - "8161:8161"
+    environment:
+      - ARTEMIS_USER=admin
+      - ARTEMIS_PASSWORD=admin
+    networks:
+      - pb-network
+
+  sqlite3db:
+    image: nouchka/sqlite3:latest
+    container_name: container_sqlite3db
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./db:/root/db/
+    networks:
+      - pb-network
+
+  service-1-web:
+    container_name: container_service-1-web
+    build:
+      context: ./service-1-web
+    ports:
+      - "8081:8081"
+    depends_on:
+      - activemq
+    environment:
+      - SPRING_ACTIVEMQ_BROKER_URL=tcp://activemq:61616
+    networks:
+      - pb-network
+
+  service-2-data:
+    container_name: container_service-2-data
+    build:
+      context: ./service-2-data
+    depends_on:
+      - activemq
+    environment:
+      - SPRING_ACTIVEMQ_BROKER_URL=tcp://activemq:61616
+    networks:
+      - pb-network
+
+  service-3-data:
+    container_name: container_service-3-data
+    build:
+      context: ./service-3-data
+    depends_on:
+      - activemq
+    environment:
+      - SPRING_ACTIVEMQ_BROKER_URL=tcp://activemq:61616
+    networks:
+      - pb-network
+
+  service-4-data:
+    container_name: container_service-4-data
+    build:
+      context: ./service-4-data
+    depends_on:
+      - activemq
+    environment:
+      - SPRING_ACTIVEMQ_BROKER_URL=tcp://activemq:61616
+    networks:
+      - pb-network
+
+  service-5-db:
+    container_name: container_service-5-db
+    build:
+      context: ./service-5-db
+    depends_on:
+      - sqlite3db
+      - activemq
+    environment:
+      - SPRING_ACTIVEMQ_BROKER_URL=tcp://activemq:61616
+    networks:
+      - pb-network
+
+networks:
+  pb-network:
+    driver: bridge
