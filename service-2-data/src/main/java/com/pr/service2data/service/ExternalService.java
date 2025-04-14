@@ -45,8 +45,6 @@ public class ExternalService {
             Thread.currentThread().interrupt();
         }
 
-        return clientsDatabase.containsKey(clientInfo.clientId())
-                ? clientsDatabase.get(clientInfo.clientId())
-                : null;
+        return clientsDatabase.getOrDefault(clientInfo.clientId(), null);
     }
 }
