@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: data-service-5
+
+  datasource:
+#    url: jdbc:sqlite:mydatabase.sqlite
+#    url: jdbc:sqlite:/app/data/mydatabase.sqlite
+#    url: jdbc:sqlite:/data/mydatabase.db
+    url: jdbc:sqlite:mydatabase.db
+    driver-class-name: org.sqlite.JDBC
+    username: root
+    password: root
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+#    database-platform: org.hibernate.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  sql:
+    init:
+      mode: never
+
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+    packages:
+      trust-all: true
+
+activemq:
+  queue:
+    receive: service4web-to-service5db-queue
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    com.pr.service3data: DEBUG
+
+#sqlite.properties
+#  driverClassName=org.sqlite.JDBC
+#  url=jdbc:sqlite:memory:myDb?cache=shared
+#  username=sa
+#  password=sa
+#  spring.jpa.database-platform=org.hibernate.community.dialect.SQLiteDialect
+#  hibernate.hbm2ddl.auto=create-drop
+#  hibernate.show_sql=true
