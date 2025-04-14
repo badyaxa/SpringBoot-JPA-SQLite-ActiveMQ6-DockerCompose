@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: data-service-3
+
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+    packages:
+      trust-all: true
+
+activemq:
+  queue:
+    receive: service2web-to-service3data-queue
+    send: service3web-to-service4data-queue
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    com.pr.service3data: DEBUG
