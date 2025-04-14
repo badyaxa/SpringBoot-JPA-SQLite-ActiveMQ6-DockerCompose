@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: client-service
+
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+    packages:
+      trust-all: true
+
+activemq:
+  queue:
+    send: service1web-to-service2data-queue
+
+jwt:
+  secret: bWV0YWxiaWxscmFuc29sdXRpb25hdmFpbGFibGVzbWFsbGVzdHdlbGxqb3VybmV5c2E=
+  expiration-ms: 3600000
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    com.pr.service1web: DEBUG
