@@ -88,7 +88,7 @@ public class ClientServiceIntegrationTest {
         assertEquals("Doe", capturedCard.lastName());
         assertEquals("Smith", capturedCard.middleName());
         assertEquals("123 Main St", capturedCard.address());
-        assertEquals(EXPECTED_CARD_NUMBER, capturedCard.carNumber());
+        assertEquals(EXPECTED_CARD_NUMBER, capturedCard.cardNumber());
     }
 
     @Test
@@ -167,6 +167,6 @@ public class ClientServiceIntegrationTest {
 
         ClientCard capturedCard = clientCardCaptor.getValue();
         assertEquals(EXISTING_CLIENT_ID, capturedCard.clientId());
-        assertEquals(EXPECTED_CARD_NUMBER, capturedCard.carNumber());
+        assertEquals(EXPECTED_CARD_NUMBER, capturedCard.cardNumber());
     }
 }

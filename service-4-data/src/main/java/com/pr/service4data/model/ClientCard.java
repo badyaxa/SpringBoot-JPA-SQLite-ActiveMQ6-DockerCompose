@@ -13,19 +13,19 @@ public record ClientCard(
         String lastName,
         String middleName,
         String address,
-        String carNumber
+        String cardNumber
 ) implements Serializable {
     @Serial
     private static final long serialVersionUID = -8800158081793746133L;
 
-    public static ClientCard from(ClientAddress details, String carNumber) {
+    public static ClientCard from(ClientAddress details, String cardNumber) {
         return new ClientCard(
                 details.clientId(),
                 details.firstName(),
                 details.lastName(),
                 details.middleName(),
                 details.address(),
-                carNumber
+                cardNumber
         );
     }
 }
