@@ -3,16 +3,12 @@ spring:
     name: data-service-5
 
   datasource:
-#    url: jdbc:sqlite:mydatabase.sqlite
-#    url: jdbc:sqlite:/app/data/mydatabase.sqlite
-#    url: jdbc:sqlite:/data/mydatabase.db
     url: jdbc:sqlite:mydatabase.db
     driver-class-name: org.sqlite.JDBC
     username: root
     password: root
   jpa:
     database-platform: org.hibernate.community.dialect.SQLiteDialect
-#    database-platform: org.hibernate.dialect.SQLiteDialect
     hibernate:
       ddl-auto: update
     show-sql: true

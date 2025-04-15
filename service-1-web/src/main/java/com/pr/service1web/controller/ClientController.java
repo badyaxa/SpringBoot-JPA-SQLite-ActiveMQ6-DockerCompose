@@ -25,7 +25,7 @@ public class ClientController {
 
     @PostMapping("/id")
     public ResponseEntity<String> process(@RequestHeader(value = HttpHeaders.AUTHORIZATION) String authHeader,
-                                                @Valid @RequestBody ClientRequest request) {
+                                          @Valid @RequestBody ClientRequest request) {
         log.info("Processing request: {}", request);
         if (!authService.isValidSessionId(authHeader)) {
             log.warn("Invalid SID in header: {}", authHeader);

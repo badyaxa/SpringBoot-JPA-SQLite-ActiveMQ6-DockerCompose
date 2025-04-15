@@ -3,7 +3,6 @@ package com.pr.service2data.messaging;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pr.service2data.model.ClientInfo;
 import com.pr.service2data.service.ClientService;
-import jakarta.jms.JMSException;
 import jakarta.jms.TextMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

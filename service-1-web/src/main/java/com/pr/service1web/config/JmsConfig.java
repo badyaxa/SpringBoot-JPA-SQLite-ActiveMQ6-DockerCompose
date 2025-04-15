@@ -1,14 +1,13 @@
 package com.pr.service1web.config;
 
+import org.apache.activemq.ActiveMQConnectionFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
-
-import org.apache.activemq.ActiveMQConnectionFactory;
-import org.springframework.beans.factory.annotation.Value;
 
 @Configuration
 public class JmsConfig {
@@ -30,6 +29,7 @@ public class JmsConfig {
         factory.setPassword(password);
         return factory;
     }
+
     @Bean
     public MessageConverter jacksonJmsMessageConverter() {
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
@@ -37,6 +37,7 @@ public class JmsConfig {
         converter.setTypeIdPropertyName("_type");
         return converter;
     }
+
     @Bean
     public JmsTemplate jmsTemplate() {
         JmsTemplate template = new JmsTemplate(connectionFactory());
