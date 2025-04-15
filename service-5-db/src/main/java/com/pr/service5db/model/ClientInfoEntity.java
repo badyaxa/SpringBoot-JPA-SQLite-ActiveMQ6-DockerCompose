@@ -38,6 +38,6 @@ public class ClientInfoEntity implements Serializable {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "car_number")
-    private String carNumber;
+    @Column(name = "card_number")
+    private String cardNumber;
 }

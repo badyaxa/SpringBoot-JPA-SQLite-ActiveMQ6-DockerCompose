@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS client_info (
     last_name TEXT NOT NULL,
     middle_name TEXT,
     address TEXT,
-    car_number TEXT
+    card_number TEXT
 );

@@ -40,7 +40,7 @@ public class ClientService {
         client.setLastName(dto.lastName());
         client.setMiddleName(dto.middleName());
         client.setAddress(dto.address());
-        client.setCarNumber(dto.carNumber());
+        client.setCardNumber(dto.cardNumber());
     }
 
     private ClientInfoEntity mapToEntity(ClientInfoDTO dto) {
@@ -50,7 +50,7 @@ public class ClientService {
                 dto.lastName(),
                 dto.middleName(),
                 dto.address(),
-                dto.carNumber()
+                dto.cardNumber()
         );
     }
 }
