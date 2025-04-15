@@ -38,5 +38,11 @@ Stops containers and removes containers, networks, volumes, and images created b
   docker-compose down --rmi local -v
 ```
 
+## Improvement
+- Додати моніторинг (Actuator) для моніторингу стану сервісів.
+- Додати централізоване логування для спрощення налагодження та відстеження проблем у розподіленій системі. Наприклад ELK (Elasticsearch, Logstash, Kibana) або Graylog.
+- Для виявлення проблем з продуктивністю можна застосувати профілювання (наприклад telemetria) + Prometheus/Grafana для моніторингу.
+- Застосувати інструмент статичного аналізу коду (наприклад Parasoft чи SonarQube) для виявлення проблем з якістю коду.
+
 ## Author
 - Github: [@badyaxa](https://github.com/badyaxa/SpringBoot-JPA-SQLite-ActiveMQ6-DockerCompose)
